@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Providers from "./Providers";
 import Navbar from "@/components/Navbar";
 import SearchBox from "@/components/SearchBox";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
           <Header />
           <Navbar />
           <SearchBox />
-          {children}
+          <UserProvider>{children}</UserProvider>
         </Providers>
       </body>
     </html>

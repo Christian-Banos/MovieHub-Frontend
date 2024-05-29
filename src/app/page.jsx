@@ -1,8 +1,12 @@
 import Results from "@/components/Results";
 
+import { getSession } from "@auth0/nextjs-auth0";
+
 const API_KEY = process.env.API_KEY;
 
 export default async function Home({ searchParams }) {
+  const session = await getSession();
+
   const genre = searchParams.genre || "fetchTrending";
   const res = await fetch(
     `https://api.themoviedb.org/3${
@@ -19,6 +23,10 @@ export default async function Home({ searchParams }) {
   return (
     <div>
       <Results results={results} />
+      <div className="nb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl">
+        {!session && <a href="/api/auth/Login">Login</a>}
+        {session && <a href="/api/auth/Logout">Logout</a>}
+      </div>
     </div>
   );
 }
