@@ -10,7 +10,7 @@ export default async function Home({ searchParams }) {
   const genre = searchParams.genre || "fetchTrending";
   const res = await fetch(
     `https://api.themoviedb.org/3${
-      genre === "fetchTopRated" ? `/movie/top_rated` : `/trending/all/week`
+      genre === "fetchTopRated" ? "/movie/top_rated" : "/trending/all/week"
     }?api_key=${API_KEY}&language=en-US&page=1`,
     { next: { revalidate: 10000 } }
   );
@@ -24,8 +24,14 @@ export default async function Home({ searchParams }) {
     <div>
       <Results results={results} />
       <div className="nb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl">
-        {!session && <a href="/api/auth/Login">Login</a>}
-        {session && <a href="/api/auth/Logout">Logout</a>}
+        {/*  {!session && <a href="/api/auth/Login">Login</a>}
+        {session && <a href="/api/auth/Logout">Logout</a>} */}
+
+        {!session ? (
+          <a href="/api/auth/Login">Login</a>
+        ) : (
+          <a href="/api/auth/Logout">Logout</a>
+        )}
       </div>
     </div>
   );
