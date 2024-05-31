@@ -10,4 +10,4 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://drive.google.com/file/d/1FmVyrF6SDz8DGpQy3RA4WR_mgpT_Javr/view?usp=sharing" alt="project-screenshot" width="400" height="400/">
+<img src="[https://drive.google.com/file/d/1FmVyrF6SDz8DGpQy3RA4WR_mgpT_Javr/view?usp=sharing](https://ibb.co/28zZ0Lz)" alt="project-screenshot" width="400" height="400/">
